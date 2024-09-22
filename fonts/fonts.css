@@ -1,0 +1,16 @@
+@font-face {
+   font-family: Borel;
+   src: url(./Borel-Regular.ttf);
+}
+
+@font-face {
+    font-family: Delius;
+    src: url(./DeliusUnicase-Regular.ttf);
+    font-weight: 500;
+ }
+
+ @font-face {
+    font-family: Delius;
+    src: url(./DeliusUnicase-Bold.ttf);
+    font-weight: 700;
+ }

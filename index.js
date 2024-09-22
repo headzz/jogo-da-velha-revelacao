@@ -741,43 +741,34 @@ const board2 = [
 ];
 
 const board3 = [
-  ['X', 'O', 'O'],
   ['X', 'X', 'O'],
+  ['X', 'O', 'O'],
   ['X', 'O', 'X']
 ];
 
 const board4 = [
   ['X', 'O', 'O'],
   ['X', 'X', 'X'],
-  ['O', 'O', 'X']
+  ['O', 'X', 'O']
 ];
 
 const board5 = [
-  ['O', 'X', 'O'],
   ['O', 'X', 'X'],
-  ['X', 'X', 'O']
+  ['O', 'X', 'X'],
+  ['X', 'O', 'O']
 ];
 
-// const possibleResults = [board1, board2, board3, board4, board5] 
-// const winCondition = {0: [[0,0],[0,1],[0,2]], 1: [[0,0],[1,0],[2,0]], 2: [[0,0],[1,0],[2,0]], 3: [[1,0],[1,1],[1,2]], 4: [[0,1],[1,1],[2,1]]}
-
-const boardExample1 = [
+const board6 = [
   ['X', 'X', 'O'],
-  ['O', 'X', 'X'],
-  ['X', 'X', 'O']
+  ['O', 'X', 'O'],
+  ['X', 'O', 'X']
 ];
 
-const boardExample2 = [
-  ['O', 'O', 'X'],
-  ['X', 'O', 'O'],
-  ['O', 'O', 'X']
-];
+const possibleResults = [board1, board2, board3, board4, board5, board6] 
+const winCondition = {0: [[0,0],[0,1],[0,2]], 1: [[0,0],[1,0],[2,0]], 2: [[0,0],[1,0],[2,0]], 3: [[1,0],[1,1],[1,2]], 4: [[0,2],[1,1],[2,0]], 5: [[0,0], [1,1], [2,2]]}
 
-const possibleResults = [boardExample1, boardExample2] 
-const winCondition = {0: [[0,1],[1,1],[2,1]], 1: [[0,1],[1,1],[2,1]]}
+const index = Math.floor(Math.random() * 6);
 
-// const index = Math.floor(Math.random() * 5);
-const index = Math.floor(Math.random() * 2);
 let finalWin = winCondition[index]
 
 const requiredBoard = possibleResults[index]
@@ -798,6 +789,8 @@ console.log(finalWin)
 const changeInnerHtml = (row, col, id) => {
       const mark = requiredBoard[row][col]
       const changeHtmlValue = document.getElementById(id)
+
+      const render = mark === 'X' ? "👦🏻" : "👧🏼";
       
       const valueToRemove = [row,col]
       const filteredMatrix = finalWin.filter(subArray => 
@@ -811,7 +804,11 @@ const changeInnerHtml = (row, col, id) => {
 
       if(finalWin.length === 0){
         myModal.show();
+        let video = document.getElementById('video-review')
+        setTimeout(() => {
+          video.play()
+        }, 700);
       }
-      changeHtmlValue.innerText = mark
+      changeHtmlValue.innerText = render
       changeHtmlValue.onclick = null
 }

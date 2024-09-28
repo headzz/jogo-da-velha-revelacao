@@ -77,8 +77,6 @@
 
 ///////////////////O DE CIMA FUNCIONA MELHOR/////////////////////////////
 
-
-
 /////////////////////////////THIS ONE WORKS////////////////////////////////////
 // Initialize an empty board
 // const board = [['', '', ''], ['', '', ''], ['', '', '']];
@@ -125,7 +123,7 @@
 //   // For the first 8 moves, place a mark but avoid completing a win
 //   if (moveCount < 8) {
 //     const mark = moveCount % 2 === 0 ? 'X' : 'O'; // Alternate between X and O
-    
+
 //     // If placing the mark would complete a win, switch to the other mark
 //     if (wouldCompleteWin(row, col, mark)) {
 //       const alternateMark = mark === 'X' ? 'O' : 'X';
@@ -156,7 +154,6 @@
 // //   console.log(board);
 // // }
 
-
 // let i = 0;
 // const changeInnerHtml = (row, col, id) => {
 //     i += 1
@@ -165,13 +162,10 @@
 //     changeHtmlValue.innerText = mark
 //     changeHtmlValue.onclick = null
 
-
 //     console.log(board, row, col, i)
 // }
 
 ////////////////////////////////////(******/////////////////////////////END OF WORKING////////////////////////////////////////////////////////////////////////
-
-
 
 //////////////HERE GOES NOTHING////////////////////
 
@@ -216,9 +210,6 @@
 // console.log("Board:");
 // board.forEach(row => console.log(row));
 // console.log("Winning Positions:", winningPositions);
-
-
-
 
 // function generateUniqueWinTicTacToe() {
 //   // Define winning combinations
@@ -269,9 +260,6 @@
 // console.log("Board5:");
 // board.forEach(row => console.log(row));
 // console.log("Winning Positions5:", winningPositions);
-
-
-
 
 /////////////////////ALMOST
 // function generateUniqueWinTicTacToe() {
@@ -486,7 +474,7 @@
 
 //       // Avoid creating a diagonal win by checking diagonal positions
 //       const isDiagonalPosition = (row === col) || (row + col === 2);
-      
+
 //       if (Math.random() < 0.5 && canPlaceO && !isDiagonalPosition) {
 //           board[row][col] = 'O'; // Place 'O' if it won't create a win and is not diagonal
 //       } else {
@@ -545,7 +533,7 @@
 //     const secondLine2 = chooseRandomly()
 
 //     console.log({secondLine1, secondLine2})
-    
+
 //     if(secondLine1 === secondLine2){
 //       const changeLastItem = secondLine1 === 'X' ? 'O' : 'X'
 //       board[1][0] = secondLine1
@@ -583,48 +571,44 @@
 //        }
 //     }
 
-
 //   }}}}}}
 
+// // Fill the remaining positions while avoiding diagonal wins and O wins
+// const remainingPositions = [];
 
-  // // Fill the remaining positions while avoiding diagonal wins and O wins
-  // const remainingPositions = [];
+// // Fill remaining positions randomly
+// remainingPositions.forEach(([row, col]) => {
+//     // Check if placing 'O' would create a new winning condition for 'O'
+//     let canPlaceO = true;
 
+//     // Check all winning combinations to ensure 'O' does not create a win
+//     for (const combo of winningCombinations) {
+//         const counts = { X: 0, O: 0 };
+//         combo.forEach(([r, c]) => {
+//             if (board[r][c] === 'X') counts.X++;
+//             if (board[r][c] === 'O') counts.O++;
+//         });
 
-  // // Fill remaining positions randomly
-  // remainingPositions.forEach(([row, col]) => {
-  //     // Check if placing 'O' would create a new winning condition for 'O'
-  //     let canPlaceO = true;
+//         // If there are 2 O's in a winning line and we try to add another O, it's a win
+//         if (counts.O === 2 && counts.X === 0) {
+//             canPlaceO = false;
+//         }
+//     }
 
-  //     // Check all winning combinations to ensure 'O' does not create a win
-  //     for (const combo of winningCombinations) {
-  //         const counts = { X: 0, O: 0 };
-  //         combo.forEach(([r, c]) => {
-  //             if (board[r][c] === 'X') counts.X++;
-  //             if (board[r][c] === 'O') counts.O++;
-  //         });
+//     // Avoid creating a diagonal win by checking diagonal positions
+//     const isDiagonalPosition = (row === col) || (row + col === 2);
 
-  //         // If there are 2 O's in a winning line and we try to add another O, it's a win
-  //         if (counts.O === 2 && counts.X === 0) {
-  //             canPlaceO = false;
-  //         }
-  //     }
-
-  //     // Avoid creating a diagonal win by checking diagonal positions
-  //     const isDiagonalPosition = (row === col) || (row + col === 2);
-      
-  //     if (Math.random() < 0.5 && canPlaceO && !isDiagonalPosition) {
-  //         board[row][col] = 'O'; // Place 'O' if it won't create a win and is not diagonal
-  //     } else {
-  //         board[row][col] = 'X'; // Place 'X'
-  //     }
-  // });
+//     if (Math.random() < 0.5 && canPlaceO && !isDiagonalPosition) {
+//         board[row][col] = 'O'; // Place 'O' if it won't create a win and is not diagonal
+//     } else {
+//         board[row][col] = 'X'; // Place 'X'
+//     }
+// });
 
 //   return { board, winningPositions: winningCombination };
 // }
 
-
-///////////////////LIKED IT 
+///////////////////LIKED IT
 // const board = [
 //   [' ', ' ', ' '],
 //   [' ', ' ', ' '],
@@ -727,66 +711,81 @@
 
 /////////////FINISH LIKED IT
 
-
 const board1 = [
-  ['X', 'X', 'X'],
-  ['O', 'O', 'X'],
-  ['X', 'O', 'O']
+  ["X", "X", "X"],
+  ["O", "O", "X"],
+  ["X", "O", "O"],
 ];
 
 const board2 = [
-  ['X', 'O', 'X'],
-  ['X', 'O', 'O'],
-  ['X', 'X', 'O']
+  ["X", "O", "X"],
+  ["X", "O", "O"],
+  ["X", "X", "O"],
 ];
 
 const board3 = [
-  ['X', 'O', 'O'],
-  ['X', 'X', 'O'],
-  ['X', 'O', 'X']
+  ["X", "X", "O"],
+  ["X", "O", "O"],
+  ["X", "O", "X"],
 ];
 
 const board4 = [
-  ['X', 'O', 'O'],
-  ['X', 'X', 'X'],
-  ['O', 'O', 'X']
+  ["X", "O", "O"],
+  ["X", "X", "X"],
+  ["O", "X", "O"],
 ];
 
 const board5 = [
-  ['O', 'X', 'O'],
-  ['O', 'X', 'X'],
-  ['X', 'X', 'O']
+  ["O", "X", "X"],
+  ["O", "X", "X"],
+  ["X", "O", "O"],
 ];
 
-// const possibleResults = [board1, board2, board3, board4, board5] 
-// const winCondition = {0: [[0,0],[0,1],[0,2]], 1: [[0,0],[1,0],[2,0]], 2: [[0,0],[1,0],[2,0]], 3: [[1,0],[1,1],[1,2]], 4: [[0,1],[1,1],[2,1]]}
-
-const boardExample1 = [
-  ['X', 'X', 'O'],
-  ['O', 'X', 'X'],
-  ['X', 'X', 'O']
+const board6 = [
+  ["X", "X", "O"],
+  ["O", "X", "O"],
+  ["X", "O", "X"],
 ];
 
-const boardExample2 = [
-  ['O', 'O', 'X'],
-  ['X', 'O', 'O'],
-  ['O', 'O', 'X']
-];
+const possibleResults = [board1, board2, board3, board4, board5, board6];
+const winCondition = {
+  0: [
+    [0, 0],
+    [0, 1],
+    [0, 2],
+  ],
+  1: [
+    [0, 0],
+    [1, 0],
+    [2, 0],
+  ],
+  2: [
+    [0, 0],
+    [1, 0],
+    [2, 0],
+  ],
+  3: [
+    [1, 0],
+    [1, 1],
+    [1, 2],
+  ],
+  4: [
+    [0, 2],
+    [1, 1],
+    [2, 0],
+  ],
+  5: [
+    [0, 0],
+    [1, 1],
+    [2, 2],
+  ],
+};
 
-const possibleResults = [boardExample1, boardExample2] 
-const winCondition = {0: [[0,1],[1,1],[2,1]], 1: [[0,1],[1,1],[2,1]]}
+const index = Math.floor(Math.random() * 6);
 
-// const index = Math.floor(Math.random() * 5);
-const index = Math.floor(Math.random() * 2);
-let finalWin = winCondition[index]
+let finalWin = winCondition[index];
 
-const requiredBoard = possibleResults[index]
-
-console.log(index)
-
-console.log( requiredBoard[0])
-console.table(requiredBoard)
-console.log(finalWin)
+const requiredBoard = possibleResults[index];
 
 // Example usage
 // const { board, winningPositions } = generateUniqueWinTicTacToe();
@@ -794,24 +793,29 @@ console.log(finalWin)
 // board.forEach(row => console.log(row));
 // console.log("Winning Positions:", winningPositions);
 
-
 const changeInnerHtml = (row, col, id) => {
-      const mark = requiredBoard[row][col]
-      const changeHtmlValue = document.getElementById(id)
-      
-      const valueToRemove = [row,col]
-      const filteredMatrix = finalWin.filter(subArray => 
-        !(subArray[0] === valueToRemove[0] && subArray[1] === valueToRemove[1])
-      );
+  const mark = requiredBoard[row][col];
+  const changeHtmlValue = document.getElementById(id);
 
-      let myModal = bootstrap.Modal.getOrCreateInstance('#myModal');
+  const render = mark === "X" ? "👦🏻" : "👧🏼";
 
-      finalWin = filteredMatrix
-      console.log(filteredMatrix)
+  const valueToRemove = [row, col];
+  const filteredMatrix = finalWin.filter(
+    (subArray) =>
+      !(subArray[0] === valueToRemove[0] && subArray[1] === valueToRemove[1])
+  );
 
-      if(finalWin.length === 0){
-        myModal.show();
-      }
-      changeHtmlValue.innerText = mark
-      changeHtmlValue.onclick = null
-}
+  let myModal = bootstrap.Modal.getOrCreateInstance("#myModal");
+
+  finalWin = filteredMatrix;
+
+  if (finalWin.length === 0) {
+    myModal.show();
+    let video = document.getElementById("video-review");
+    setTimeout(() => {
+      video.play();
+    }, 700);
+  }
+  changeHtmlValue.innerText = render;
+  changeHtmlValue.onclick = null;
+};

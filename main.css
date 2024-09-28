@@ -1,87 +1,251 @@
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    justify-content: center;
-    width: 100%;
-    height: 90vh;
-    grid-gap: 5px 0px;
-    background-color: rebeccapurple;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+  background-color: transparent;
+  max-width: 400px;
+  max-height: 400px;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+.containerGridTicTacToe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
 }
 
-.title{
-    display: flex;
-    justify-content: center;
+.mainSection {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.cells{
-    align-self: center;
-    justify-self: center;
-    background-color: white;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.title {
+  display: flex;
+  justify-content: center;
+  font-family: "Borel", sans-serif;
+  text-shadow: 1px 3px 3px rgb(110 100 10 / 0.6);
+  color: #414141;
+  padding-top: 30px;
+  font-size: 2.8rem;
 }
 
-.cell-border{
-    border-left: 5px solid greenyellow
+.cells {
+  align-items: center;
+  align-self: center;
+  background-color: transparent;
+  display: flex;
+  height: 100%;
+  font-size: 3.5rem;
+  justify-content: center;
+  justify-self: center;
+  width: 100%;
 }
 
+.cell-border {
+  border-left: 5px solid #94d192;
+}
 
+.cell-border-vertical {
+  border-top: 5px solid #bf77bb;
+  border-bottom: 5px solid #bf77bb;
+}
 
 /*RESeT CSS*/
 
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  background: rgb(255, 163, 251);
+  background: linear-gradient(
+    180deg,
+    rgba(229, 200, 227, 1) 0%,
+    rgba(204, 241, 226, 1) 52%,
+    rgba(212, 236, 211, 1) 100%
+  );
+
+  height: 100vh;
+}
+
+.btn-shine {
+  background: linear-gradient(to right, #4d4d4d 0, white 10%, #4d4d4d 20%);
+  background-size: 200%; /* Ensure smooth animation */
+  background-position: -50px; /* Start far off-screen */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s infinite;
+  -webkit-text-size-adjust: none;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -50px; /* Start far left, off-screen */
+  }
+  60% {
+    background-position: 100%; /* Move across the element */
+  }
+  100% {
+    background-position: 141px; /* End slightly past the right edge */
+  }
+}
+
+.video-responsivenes {
+  width: 360px;
+}
+
+@media screen and (min-width: 1000px) {
+  .video-responsivenes {
+    width: 1000px;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .grid {
+    max-width: 800px;
+    max-height: 800px;
+  }
+
+  .containerGridTicTacToe {
+    height: 100%;
+  }
+
+  .mainSection {
+    height: fit-content;
+    display: block;
+  }
+
+  .cells {
+    font-size: 5rem;
+  }
 }
